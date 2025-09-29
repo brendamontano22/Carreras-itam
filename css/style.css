@@ -1,0 +1,301 @@
+/* Empuja el contenido para que no quede debajo del navbar fijo */
+/*body { padding-top: 75px; }--!>
+
+/* Subrayado animado en activo/hover */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+.navbar .nav-link{
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    line-height: 1.2;
+
+  position: relative;
+  font-weight: normal;
+  color: #fff;
+}
+.navbar {
+    position: absolute;
+    padding-top: 0.70rem;
+    padding-bottom: 0.70rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  min-height: 60px; 
+}
+.navbar-brand img {
+  vertical-align: middle;
+  max-height: 36px;
+}
+
+
+.navbar .nav-link.active,
+.navbar .nav-link:focus,
+.navbar .nav-link:hover{ color:#fff; }
+
+.navbar .nav-link:not(.dropdown-toggle)::after{
+  content:"";
+  position:absolute; 
+  left:0; 
+  right:0; 
+  bottom:-6px;
+  margin:0 auto; 
+  width:0; 
+  height:3px;
+  background:#cfe6dc; 
+  opacity:.9; 
+  transition:width .25s ease;
+}
+
+
+
+.navbar .nav-link.active::after,
+.navbar .nav-link:hover::after,
+.navbar .dropdown-toggle.show::after {
+  width: 70%;
+}
+
+/* Dropdown estilo menta y abrir al hover en desktop */
+.dropdown-menu-mint {
+  background: #d9efe6;
+  min-width: 22rem;
+  padding: 0.5rem 0;
+}
+
+
+.dropdown-menu-mint .dropdown-item{
+  font-weight:600; letter-spacing:.12em; color:#003d34; padding:1rem 1.25rem;
+}
+.dropdown-menu-mint .dropdown-item:hover{ background:rgba(0,0,0,.05); color:#003d34; }
+.navbar-dark .dropdown-menu{ margin-top:.5rem; }
+@media (min-width:992px){
+  .navbar .dropdown:hover .dropdown-menu{ display:block; }
+}
+.logo-itam {
+  height: 60px !important; 
+  width: auto;
+}
+.navbar-brand img {
+  max-height: none !important;
+}
+
+
+
+.hero{ 
+  margin-top: 0; 
+  min-height: 100vh;
+  background:
+    url("../img/hero.jpg") center/cover no-repeat;
+  display: flex;
+}
+@media (min-width: 992px){
+  .hero{ min-height: 100vh; }
+}
+.hero > .container{ min-height:100vh; display:flex; align-items:flex-end; padding-bottom:2rem; }
+
+/* Íconos del hero */
+.hero a.link-light{
+  opacity: .9; text-decoration: none;
+}
+.hero a.link-light:hover{
+  opacity: 1; transform: translateY(-1px);
+}
+.sec-carreras{ background:#d9efe6; }
+.carrera-card{ border-radius:16px; }
+.carrera-card .card-img-top{
+  aspect-ratio:16/9; object-fit:cover;
+  border-radius:8px; margin:0;
+}
+.carrera-etiqueta{ position:absolute; left:18px; top:14px; color:#0c5c4c; font-weight:600; }
+.plan-link{ letter-spacing:.35em; }
+/* Zoom al hacer hover en toda la tarjeta */
+.carrera-card{ transition: transform .2s ease, box-shadow .2s ease; }
+.carrera-card:hover{ transform: scale(1.02); box-shadow: 0 1rem 2rem rgba(0,0,0,.15); }
+.carrera-card{ overflow:hidden; }
+
+/* Marco gris alrededor de la imagen (como el original) */
+.carrera-card .position-relative{
+  background:#e9ecef;                 /* gris claro del marco */
+  padding: 1rem 1rem 0;               /* separa la imagen de los bordes */
+  border-top-left-radius:16px;
+  border-top-right-radius:16px;
+}
+.carrera-card .card-img-top{           /* la imagen dentro del marco */
+  border-radius:8px;
+  margin:0;
+}
+
+/* Fondo verdoso del cuerpo de la card */
+.carrera-card .card-body{
+  background:#eef6f3;
+  border-bottom-left-radius:16px;
+  border-bottom-right-radius:16px;
+}
+
+/* Ajuste de la etiqueta sobre la imagen */
+.carrera-etiqueta{ left:28px; top:22px; }
+
+/* Hover del título: verde + un poquito más grande */
+.carrera-card h3 a{
+  display:inline-block;
+  color:#212529;
+  text-decoration:none;
+  transition: color .15s ease, transform .15s ease;
+}
+.carrera-card h3 a:hover{
+  color:#0c5c4c;                       /* verde ITAM-ish */
+  transform: scale(1.04);
+}
+
+/* Hover de “PLAN DE ESTUDIOS”: mismo efecto y sin subrayado */
+.plan-btn{ text-decoration:none; }
+.plan-btn .plan-link{
+  display:inline-block;
+  color:#212529;
+  transition: color .15s ease, transform .15s ease;
+}
+.plan-btn:hover .plan-link{ color:#0c5c4c; transform: scale(1.04); }
+.plan-btn:hover i{ color:#0c5c4c; }
+
+/* (ya lo tienes, pero por si acaso) evita desbordes en el zoom */
+.carrera-card{ overflow:hidden; }
+/* Marco gris y padding alrededor de la imagen (si no lo tienes) */
+.carrera-card .position-relative{
+  background:#fff; padding:1rem 1rem 0;
+  border-top-left-radius:16px; border-top-right-radius:16px;
+}
+.carrera-card .card-img-top{ border-radius:0; margin:0; }
+
+/* Fondo del cuerpo + centrado del contenido */
+.carrera-card .card-body{
+  background:#fff;
+  border-bottom-left-radius:16px; border-bottom-right-radius:16px;
+  text-align:center;
+}
+
+/* Título en verde y con hover */
+.carrera-card h3{ margin-bottom:.75rem; }
+.carrera-card h3 a{
+  display:inline-block; color:#0c5c4c; text-decoration:none;
+  transition: color .15s ease, transform .15s ease;
+  font-weight:700;
+}
+.carrera-card h3 a:hover{ color:#0b6d5c; transform:scale(1.04); }
+
+/* PLAN DE ESTUDIOS centrado con icono a la izquierda + hover */
+.plan-btn{ display:block; position:relative; padding-left:1.75rem; text-decoration:none; }
+.plan-btn i{ position:absolute; left:0; top:.15rem; }
+.plan-btn .plan-link{
+  display:block; text-align:center; letter-spacing:.4em; font-weight:500;
+  transition: color .15s ease, transform .15s ease;
+}
+.plan-btn:hover .plan-link{ color:#0c5c4c; transform:scale(1.04); }
+
+/* Mantén el zoom de la tarjeta sin desbordes */
+.carrera-card{ overflow:hidden; transition:transform .2s ease, box-shadow .2s ease; }
+.carrera-card:hover{ transform:scale(1.02); box-shadow:0 1rem 2rem rgba(0,0,0,.15); }
+/* Título en verde ITAM y negritas + hover suave */
+.title-link{
+  display:inline-block;
+  color:#0c5c4c;        /* verde ITAM aprox */
+  font-weight:700;
+  transition: color .15s ease, transform .15s ease;
+}
+.title-link:hover{
+  color:#0b6d5c;
+  transform: scale(1.04);
+}
+/* Hace que la imagen llene el marco y quite el “gap” inferior */
+.card-img-top{ display:block; }
+.img-cover{ aspect-ratio:16/9; width:100%; height:auto; object-fit:cover; }
+
+/* Mueve el “punto de interés” hacia la derecha (ajústalo a gusto) */
+.img-right{ object-position: 70% 50%; }   /* 70% a la derecha, centrado vertical */
+/* La imagen entra completa en el marco (como el original) */
+.card-img-top{ display:block; }              /* quita el “gap” de img inline */
+.img-contain{
+  aspect-ratio:16/9;
+  width:100%;
+  height:auto;
+  object-fit: contain;                       /* 👈 no recorta */
+  object-position: left center;              /* muestra bien el texto de la izquierda */
+}
+/* Tamaño del título + color base y hover */
+.carrera-card h3{ font-size: 1.25rem; line-height: 1.2; }   /* un poco más grande */
+.title-link{
+  display:inline-block;
+  color:#0c5c4c;             /* verde base */
+  font-weight:700;
+  transition: color .15s ease, transform .15s ease;
+}
+.title-link:hover{
+  color:#74c985;             /* verde claro como en tu captura */
+  transform: scale(1.04);
+}
+
+/* PLAN DE ESTUDIOS: mismo verde en hover */
+.plan-btn .plan-link{
+  display:block;
+  letter-spacing:.4em;       /* tracking amplio como el original */
+  transition: color .15s ease, transform .15s ease;
+}
+.plan-btn:hover .plan-link,
+.plan-btn:hover i{
+  color:#74c985;
+  transform: scale(1.04);
+}
+/* Título verde + hover a verde claro */
+.carrera-card h3 .title-link{
+  color:#0c5c4c !important;   /* verde base */
+  font-weight:700;
+  transition: color .15s ease, transform .15s ease;
+}
+.carrera-card h3 .title-link:hover{
+  color:#74c985 !important;   /* verde claro del ejemplo */
+  transform: scale(1.04);
+}
+.sec-programas {
+  background-color: #f8f9fa; /* fondo claro como en la imagen */
+}
+
+.video-thumbnail {
+  border-radius: 1rem;
+}
+
+.video-thumbnail img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+  display:block;
+}
+
+.overlay {
+  background-color: rgba(0, 83, 63, 0.25); /* verde ITAM con opacidad */
+}
+
+.play-icon i {
+  transition: transform 0.2s ease;
+}
+
+.play-icon:hover i {
+  transform: scale(1.1);
+}
+.text-itam-green {
+  color: #2c5f13;
+}
+.footer-itam {
+  background-color: #00473e;
+}
+
+.footer-itam h6 {
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.footer-itam a.link-light:hover {
+  text-decoration: underline;
+}
+
+
